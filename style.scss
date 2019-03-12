@@ -1,0 +1,225 @@
+//----- Extends
+%clearfix:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+
+//----- Grid System
+$grid-spacing:3%;
+$text-size:16px;
+$text-spacing:10%;
+$bg-color:rgb(158, 150, 228);
+$width-small:600px;
+$width-big:1024px;
+html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 12vh;
+    min-height: 100%;
+  }
+
+.row {
+	@extend %clearfix;
+    margin-left:$grid-spacing;
+    margin-right:$grid-spacing;
+	//margin-top:$grid-spacing;
+}
+
+.col {
+    float:left;
+    margin-right:$grid-spacing;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+    
+	&:last-child {
+		margin-right:0%;
+	}
+}
+
+#box-col{
+    background-color:$bg-color;
+    border-style:solid;
+    margin-top:$grid-spacing;
+}
+#box-col-1{
+    @extend #box-col;
+    @media screen and (min-width: $width-small) and (max-width: $width-big) {
+        width: 100%;
+        //float: none;
+    }
+
+    @media screen and (max-width: $width-small) {
+        width: 100%;
+        //float: none;
+    }
+}
+#box-col-2{
+    @extend #box-col;
+    @media screen and (min-width: $width-small) and (max-width: $width-big) {
+        width:(100% / 2) - ($grid-spacing * 6 / 12);
+        
+    }
+    @media screen and (max-width: $width-small) {
+        width: 100%;
+        //float: none;
+    }
+}
+
+.box{
+    width:100%;
+    margin-bottom: 2*$text-spacing;
+    @media screen and (min-width: $width-small) and (max-width: $width-big) {
+        margin-bottom: $text-spacing;
+    }
+    .box-title{
+        float:right;
+        width:200px;
+        background-color: yellow;
+        font-size:$text-size*1.5;
+        text-align:center;
+        border-style: solid;
+        border-top: none;
+        border-right: none;
+    }
+    .box-title-1{
+        @extend .box-title;
+        background-color: rgb(31, 31, 71);
+    }
+    .box-title-2{
+        @extend .box-title;
+        background-color: rgb(68, 0, 255);
+    }
+    .box-title-3{
+        @extend .box-title;
+        background-color: rgb(120, 95, 148);
+    }
+}
+
+
+.text{
+    font-size:$text-size;
+    margin-left:$text-spacing;
+    margin-right:$text-spacing;
+    margin-top:$text-spacing;
+    margin-bottom:$text-spacing;
+}
+
+
+//----- Columns (Automatic)
+.col-1 {
+    @extend .col;
+    width:(100% / 12) - ($grid-spacing * 11 / 12);
+}
+.col-2 { 
+    @extend .col;
+    width:(100% / 6) - ($grid-spacing * 10 / 12);
+}
+.col-3 {
+    @extend .col;
+    width:(100% / 4) - ($grid-spacing * 9 / 12);
+}
+.col-4 {
+    @extend .col;
+    width:(100% / 3) - ($grid-spacing * 8 / 12);
+}
+.col-5 {
+    @extend .col;
+    width:(100% / 2.4) - ($grid-spacing * 7 / 12);
+}
+.col-6 { 
+    @extend .col;
+    width:(100% / 2) - ($grid-spacing * 6 / 12);
+}
+.col-7 { 
+    @extend .col;
+    width:(100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
+}
+.col-8 { 
+    @extend .col;
+    width:(100% / 1.5) - ($grid-spacing * 4 / 12);
+}
+.col-9 { 
+    @extend .col;
+    width:(100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
+}
+.col-10 { 
+    @extend .col;
+    width:(100% / 1.2) - ($grid-spacing * 2 / 12);
+}
+.col-11 { 
+    @extend .col;
+    width:(100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
+}
+.col-12 { 
+    @extend .col;
+    width:100%;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding:0;
+    height: 100px;
+    width: 100%;
+    background-color: $bg-color;
+    text-align: center;
+    color: black;
+    font-size:$text-size;
+  }
+
+#myName{
+    font-style:bold;
+    font-size: $text-size + 4;
+}
+#title-col{
+    font-style:bold;
+    font-size: $text-size*2;
+    text-align: left;
+    margin-top: $grid-spacing;
+    @media screen and (max-width: $width-small) {
+        font-size: 0px;
+    }
+}
+
+#menu-bar{
+    margin-top: 80px;
+    img{
+        width: 0;
+        height: 0;
+
+    }
+    @media screen and (max-width: $width-big) {
+        font-size: 0px;
+        color: white;  
+        text-align: right;
+        margin-top: $grid-spacing;
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+
+#cheat{
+    font-size: 1px;
+    color: white;
+}
+img{
+    width:100px;
+    height:100px;
+    
+}
