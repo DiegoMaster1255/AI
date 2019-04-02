@@ -7,7 +7,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            alert('Czy wiesz, że możesz skopiować ten tekst przy pomocy skrótu Ctrl + C.');
+            //alert('Czy wiesz, że możesz skopiować ten tekst przy pomocy skrótu Ctrl + C.');
         });
         $(function () {
             $('button:contains(\'Zielony\')').click(function () {
@@ -20,20 +20,32 @@
                 $('#toggle').toggleClass('zielona');
             });
             $('tr:even').addClass('zielona');
+            $('ol.a li *.b:not([href])').addClass('temp');
         });
         
-
     </script>
     <style>
         .zielona {
             background: Pink;
         }
+        .temp{
+            background: turquoise;
+        }
     </style>
 </head>
 
 <body>
+    <ol class="a">
+        <li><a href="#" class="b">AAA</a></li>
+        <li><p class="b">AAA</p></li>
+        <li><a>AAA</a></li>
+    </ol>
+    <ol>
+        <li> ASDKAO</li>
+        <li><p class="b"ASDAW></p></li>
+    </ol>
     <table>
-        <tr>
+        <tr class = "a">
             <td>Pierwszy</td>
         </tr>
         <tr>
@@ -42,7 +54,7 @@
         <tr>
             <td>Trzeci</td>
         </tr>
-        <tr>
+        <tr class = "a">
             <td>Czwarty</td>
         </tr>
         <tr>
